@@ -1,8 +1,9 @@
 aside.logo{
-    background-color: var(--bg-dark);
+    background: linear-gradient(135deg, #07a7e3, #32dac3 100%);
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: var(--shadow);
 }
 
 aside.logo img{
