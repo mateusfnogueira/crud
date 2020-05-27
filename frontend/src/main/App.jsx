@@ -13,6 +13,10 @@ export default props =>
     <div className="app">
         <Logo />
         <Nav />
-        <Main icon="home" title="Início" subtitle="Formulario em React"/>
+        <Main icon="home" title="Início" subtitle="Formulario em React">
+        <div className="display-4">Bem Vindo</div>
+        <hr/>
+        <p className="mb-0">Sistema para exemplificar a consturção de um cadastro desenvolvido em react</p>
+        </Main>
         <Footer />
     </div>
