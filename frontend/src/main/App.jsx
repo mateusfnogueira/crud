@@ -13,6 +13,6 @@ export default props =>
     <div className="app">
         <Logo />
         <Nav />
-        
+        <Home/>
         <Footer />
     </div>
