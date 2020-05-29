@@ -94,7 +94,7 @@ export default class UserCrud extends Componet {
     render() {
         return(
             <Main {...headerProps}>
-                Cadastro de usuário 
+                {this.renderForm()}
             </Main>
         )
     }
