@@ -1,4 +1,5 @@
 import React, { Componet } from 'react'
+import axios from 'axios'
 import Main from '../template/Main'
 
 const headerProps = {
@@ -6,6 +7,8 @@ const headerProps = {
     title: 'Usúarios',
     subtitle: 'Cadastro de usúarios: Incluir, Listar, Alterar, Excluir'
 }
+
+const baseUrl = 'http://localhost:3001/users'
 
 export default class UserCrud extends Componet {
     render() {
