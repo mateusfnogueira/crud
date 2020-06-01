@@ -39,9 +39,9 @@ export default class UserCrud extends Componet {
             })
         }
         
-        getUpdateList(user){
+        getUpdateList(user, add=true){
             const list = this.state.filter(u => u.id !== user.id)
-            if(user) list.unshift(user)
+            if(add) list.unshift(user)
             return list
     }
 
@@ -103,7 +103,7 @@ export default class UserCrud extends Componet {
 
     remove(user) {
         axios.delete(`${baseUrl}/${user.id}`).then(resp =>{
-            const list = this.getUpdateList(null)
+            const list = this.getUpdateList(user, false)
             this.setState({list})
         })
     }
@@ -113,6 +113,7 @@ export default class UserCrud extends Componet {
             <table className="table mt-4">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Nome</th>
                         <th>E-mail</th>
                         <th>Ações</th>
@@ -129,6 +130,7 @@ export default class UserCrud extends Componet {
         return this.state.list.map(user => {
             return (
                 < tr key={user.id}>
+                    <td>{user.id}</td>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
                     <td>
@@ -152,6 +154,7 @@ export default class UserCrud extends Componet {
         return(
             <Main {...headerProps}>
                 {this.renderForm()}
+                {this.renderTable()}
             </Main>
         )
     }
