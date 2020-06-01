@@ -18,6 +18,12 @@ export default class UserCrud extends Componet {
 
     state = {...initialState}
 
+    componentWillMount() {
+        axios(baseUrl).then(rep => {
+            this.setState({list: resp.data})
+        })
+    }
+
     clear() {
         this.setState({user: initialState.user})
     }
@@ -35,7 +41,7 @@ export default class UserCrud extends Componet {
         
         getUpdateList(user){
             const list = this.state.filter(u => u.id !== user.id)
-            list.unshift(user)
+            if(user) list.unshift(user)
             return list
     }
 
@@ -91,7 +97,20 @@ export default class UserCrud extends Componet {
         )
     }
 
+    load(user) {
+        this.setState({user})
+    }
+
+    remove(user) {
+        axios.delete(`${baseUrl}/${user.id}`).then(resp =>{
+            const list = this.getUpdateList(null)
+            this.setState({list})
+        })
+    }
+
     render() {
+        console.log(this.state.list)
+
         return(
             <Main {...headerProps}>
                 {this.renderForm()}
